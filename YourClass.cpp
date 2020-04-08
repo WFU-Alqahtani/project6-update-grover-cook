@@ -5,47 +5,65 @@
 #include "YourClass.h"
 using namespace std;
 
+
+
 string YourClass::getName() const {
-    return nullptr;
+    return name;
 }
 
-void YourClass::setName() {
-
+void YourClass::setName(string playerName) {
+    name = playerName;
 }
+
+
 
 string YourClass::getAge() const {
-    return 0;
+    return age;
 }
 
-void YourClass::setAge() {
-
+void YourClass::setAge(int playerAge) {
+    age = playerAge;
 }
+
+//void YourClass::setAge() {
+//}
+
+
 
 string YourClass::getOverall() const {
-    return 0;
+    return overall;
 }
 
-void YourClass::setOverall() {
-
+void YourClass::setOverall(int playerOverall) {
+    overall = playerOverall;
 }
+
+//void YourClass::setOverall() {
+//}
+
+
 
 string YourClass::getNationality() const {
-    return string();
+    return nationality;
 }
 
-void YourClass::setNationality() {
-
+void YourClass::setNationality(string playerNationality) {
+    nationality = playerNationality;
 }
+
+//void YourClass::setNationality() {
+//}
 
 string YourClass::getClub() const {
-    return string();
+    return club;
 }
 
-void YourClass::setClub() {
-
+void YourClass::setClub(string playerClub) {
+    club = playerClub;
 }
 
-
+//void YourClass::setClub() {
+//}
 
 ostream &operator<<(ostream &output, const YourClass &example) {
     output << "Name: " <<example.name<<endl;

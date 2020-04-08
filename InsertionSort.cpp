@@ -39,12 +39,17 @@ int main() {
     }
     inFile.close();
     cout << "done!" << endl;
-    // populate the vector with the data from your data set
-    string data;
-    for (int i = 0; i < totalEntries; ++i) {
-        getline(inFile, data);
-        v.at(i)=
 
+
+    // populate the vector with the data from your data set
+    //Currently populates the vector with YourClass objects, but the objects only have the playerName set
+    string data;
+    string playerName;
+    YourClass nextPlayer;
+    for (int i = 0; i < totalEntries; ++i) {
+        getline(inFile, playerName, ',');
+        nextPlayer.setName(playerName);
+        v.at(i) = nextPlayer;
     }
 
     // binary insertion sort

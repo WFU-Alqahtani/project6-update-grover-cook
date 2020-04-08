@@ -45,3 +45,29 @@ LinkedList::~LinkedList() {
     }
 }
 
+
+//slides
+void LinkedList:: append(YourClass obj) {
+    if (head == nullptr) {
+        head = new Node(obj);
+    } else {
+        Node* cursor = head;
+        while (cursor -> next != nullptr) {
+            cursor = cursor -> next;
+        }
+        cursor -> next = new Node(obj);
+    }
+}
+
+//slides
+void LinkedList:: printList() {
+    node * cursor = head;
+    if (! cursor) {
+        cout << " empty list " << endl;
+    } else {
+        while (cursor != nullptr) {
+            cout << cursor -> value << endl;
+            cursor = cursor -> next;
+        }
+    }
+}

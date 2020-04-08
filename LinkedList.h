@@ -23,9 +23,10 @@ public:
     ~LinkedList();
 
     //Functions. You may not need to use them all
+    //Copied from slides: append and printList
     void append(YourClass obj);
-    bool Delete (YourClass obj);
-    YourClass find (YourClass obj)
+    bool Delete (YourClass obj);    //Slides have a remove, not sure if remove is necessary but I remember we need to de-link the node somehow
+    YourClass find (YourClass obj)  //Need to set up operator to go until first node with a greater value?
     void printList();
     void InsertionSort();
 
