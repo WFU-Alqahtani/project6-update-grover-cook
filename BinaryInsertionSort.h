@@ -2,6 +2,7 @@
 #define BINARYINSERTIONSORT_H
 
 #include <vector>
+#include "YourClass.h"
 using namespace std;
 
 int binarySearch(vector<YourClass> a, int item, int low, int high);
