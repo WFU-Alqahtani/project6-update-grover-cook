@@ -9,26 +9,33 @@ using namespace std;
 
 class YourClass{
 public:
+
+    YourClass();
+    ~YourClass();
     string name;
     string age;
     string overall;
     string nationality;
     string club;
-    friend ostream &operator<<( ostream &output, const YourClass &example );
-    friend ostream &operator>>( ostream &output, const YourClass &example );
-    bool operator>(const YourClass& example);
+    bool operator<(YourClass player);
+    bool operator<=(YourClass player);
+    bool operator>(YourClass player);
+    bool operator>=(YourClass player);
+    bool operator==(YourClass player);
+    friend ostream &operator<<( ostream &output, const YourClass &example);
+
+    void setName(string basicString);
+    void setAge(string basicString);
+    void setOverall(string basicString);
+    void setNationality(string basicString);
+    void setClub(string basicString);
 
 private:
     string getName()const;
-    void setName();
     string getAge()const;
-    void setAge();
     string getOverall()const;
-    void setOverall();
     string getNationality()const;
-    void setNationality();
     string getClub()const;
-    void setClub();
 
 };
 
