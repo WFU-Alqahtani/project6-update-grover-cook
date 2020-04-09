@@ -45,8 +45,6 @@ void YourClass::setClub() {
 
 }
 
-
-
 ostream &operator<<(ostream &output, const YourClass &example) {
     output << "Name: " <<example.name<<endl;
     output << "Age: " <<example.age<<endl;
@@ -57,16 +55,23 @@ ostream &operator<<(ostream &output, const YourClass &example) {
 }
 
 
-
-ostream &operator>>(ostream &output, const YourClass &example) {
-    output << "Name: " <<example.name<<endl;
-    output << "Age: " <<example.age<<endl;
-    output << "Overall: " <<example.overall<<endl;
-    output << "Nationality: " << example.nationality<<endl;
-    output << "Club" << example.club<<endl;
+bool YourClass::operator<(YourClass player){
+    return (this->getName()<player.getName());
+}
+bool YourClass::operator<=(YourClass player){
+    return (this->getName()<=player.getName());
+}
+bool YourClass::operator>(YourClass player){
+    return (this->getName()>player.getName());
+}
+bool YourClass::operator>=(YourClass player){
+    return (this->getName()>=player.getName());
+}
+bool YourClass::operator==(YourClass player){
+    return (this->getName()==player.getName());
 }
 
-bool YourClass::operator>(const YourClass& example) {
-    return true;
-}
+
+
+
 

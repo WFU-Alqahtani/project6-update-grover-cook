@@ -14,9 +14,12 @@ public:
     string overall;
     string nationality;
     string club;
-    friend ostream &operator<<( ostream &output, const YourClass &example );
-    friend ostream &operator>>( ostream &output, const YourClass &example );
-    bool operator>(const YourClass& example);
+    bool operator<(YourClass player);
+    bool operator<=(YourClass player);
+    bool operator>(YourClass player);
+    bool operator>=(YourClass player);
+    bool operator==(YourClass player);
+    friend ostream &operator<<( ostream &output, const YourClass &example);
 
 private:
     string getName()const;
