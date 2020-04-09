@@ -1,3 +1,8 @@
+//
+// Created by Austin Grover and James Cook on 4/7/20.
+//
+
+
 #ifndef BINARYINSERTIONSORT_H
 #define BINARYINSERTIONSORT_H
 

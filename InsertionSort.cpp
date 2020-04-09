@@ -1,3 +1,8 @@
+//
+// Created by Austin Grover and James Cook on 4/7/20.
+//
+
+
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -7,6 +12,7 @@
 #include "YourClass.h"
 #include "LinkedList.h"
 #include "LinkedList.cpp"
+#include <ctime>
 
 using namespace std;
 
@@ -21,7 +27,8 @@ int main() {
 //   cout << "What is the name of your file?" << endl;
 //   cin >> filename;
 
-   cout << "What many data entries are there?" << endl;
+   cout << "How many data entries would you like to sort?" << endl;
+   cout << "The maximum number for this data set is 18,279." << endl;
    cin >> totalEntries;
 
    ifstream inFile;
@@ -34,7 +41,9 @@ int main() {
     }
 
     vector<YourClass> v(totalEntries);
+    LinkedList players;
 
+    //fill the object with each data point
     for(int i=0; i<totalEntries; i++) {
         getline(inFile, playerName, ',');
         nextPlayer.setName(playerName);
@@ -47,35 +56,24 @@ int main() {
         getline(inFile, playerOverall);
         nextPlayer.setOverall(playerOverall);
         v.at(i) = nextPlayer;
-        cout<<nextPlayer<<endl;
+        players.append(nextPlayer);
+
     }
 
+    //run and time insertion sort using a linked list
+    clock_t start_LinkedList = clock();
+    players.InsertionSort();
+    clock_t end_LinkedList = clock();
 
+    //print sorted linked list
+    players.printList();
 
-//    LinkedList l;
-//    // populate the vector with the data from your data set
-//    string tmp;
-//    getline(inFile, tmp);
-//    while (!inFile.eof()) {
-//        if (!inFile.fail()) {
-//            getline(inFile, playerName, ',');
-//            getline(inFile, playerAge, ',');
-//            getline(inFile, playerOverall, ',');
-//            getline(inFile, playerNationality, ',');
-//            getline(inFile, playerClub, ',');
-//            getline(inFile, tmp);
-//            YourClass a(playerName, playerAge, playerOverall, playerName, playerClub);
-//
-//        }
-//    }
-//    l.printList();
-
-
-
-
-
+    //run adn time insertion sort using vector
+    clock_t start_InsertionSort = clock();
     // binary insertion sort
     insertionSort(v, v.size());
+    clock_t end_InsertionSort = clock();
+
 
     // check if sorted
     for (int i = 1; i < v.size(); i++) {
@@ -84,10 +82,17 @@ int main() {
 
     // print out sorted list
     for (int i = 0; i < v.size(); i++) {
-        //you should ovrride << to YourClass
+        //you should override << to YourClass
         cout << v.at(i) << endl;
     }
 
-    // FINISH ME
+    double elapsed_LinkedList = double(end_LinkedList - start_LinkedList) / CLOCKS_PER_SEC;
+    double elapsed_InsertionSort = double(end_InsertionSort - start_InsertionSort) / CLOCKS_PER_SEC;
+
+    cout << "Time to complete (s): " << endl;
+    cout << "Linked List: " << elapsed_LinkedList << " Insertion Sort: " << elapsed_InsertionSort << endl;
+
+
+    inFile.close();
 
 }

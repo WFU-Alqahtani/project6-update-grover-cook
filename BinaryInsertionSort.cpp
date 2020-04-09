@@ -1,3 +1,8 @@
+//
+// Created by Austin Grover and James Cook on 4/7/20.
+//
+
+
 #include "BinaryInsertionSort.h"
 using namespace std;
 
@@ -23,7 +28,7 @@ void insertionSort(vector<YourClass> &a, int n) {
 
     for (int i = 1; i < n; i++) {
         int j = i - 1;
-        int selected = a[i];
+        YourClass selected = a[i];
 
         // find location where selected should be inserted
         int loc = binarySearch(a, selected, 0, j);

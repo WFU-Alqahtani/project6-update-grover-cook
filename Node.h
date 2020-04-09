@@ -1,3 +1,7 @@
+//
+// Created by Austin Grover and James Cook on 4/7/20.
+//
+
 #ifndef NODE_H
 #define NODE_H
 

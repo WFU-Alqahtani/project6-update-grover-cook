@@ -1,6 +1,7 @@
 //
-// Created by sarra on 3/30/2020.
+// Created by Austin Grover and James Cook on 4/7/20.
 //
+
 
 #ifndef BINARYINSERTIONSORT_LINKEDLIST_H
 #define BINARYINSERTIONSORT_LINKEDLIST_H
@@ -25,7 +26,7 @@ public:
     //Functions. You may not need to use them all
     void append(YourClass obj);
     bool Delete (YourClass obj);
-    YourClass find (YourClass obj)
+    YourClass find (YourClass obj);
     void printList();
     void InsertionSort();
 
