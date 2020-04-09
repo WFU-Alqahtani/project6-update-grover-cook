@@ -3,100 +3,70 @@
 //
 
 #include "YourClass.h"
-#include <string>
 using namespace std;
 
 string YourClass::getName() const {
-    return name;
+    return nullptr;
 }
 
-void YourClass::setName(string basicString) {
+void YourClass::setName() {
 
 }
 
 string YourClass::getAge() const {
-    return age;
+    return 0;
 }
 
-void YourClass::setAge(string basicString) {
+void YourClass::setAge() {
 
 }
 
 string YourClass::getOverall() const {
-    return overall;
+    return 0;
 }
 
-void YourClass::setOverall(string basicString) {
+void YourClass::setOverall() {
 
 }
 
 string YourClass::getNationality() const {
-    return nationality;
+    return string();
 }
 
-void YourClass::setNationality(string basicString) {
+void YourClass::setNationality() {
 
 }
 
 string YourClass::getClub() const {
-    return club;
+    return string();
 }
 
-void YourClass::setClub(string basicString) {
-
-}
-
-ostream &operator<<(ostream &tooutput, const YourClass &example) {
-//    output << "Name: " <<example.name << endl;
-//    output << "Age: " <<example.age << endl;
-//    output << "Overall: " <<example.overall << endl;
-//    output << "Nationality: " << example.nationality << endl;
-//    output << "Club:" << example.club << endl;
-    string toOutput;
-    toOutput.append("name: ");
-    toOutput.append(example.playerName);
-    toOutput.append("Age: ");
-    toOutput.append(example.playerAge);
-    toOutput.append("Nationality: ");
-    toOutput.append(example.playerNationality);
-    toOutput.append("Club: ");
-    toOutput.append(example.playerClub);
-    toOutput.append("Overall: ");
-    toOutput.append(example.playerOverall);
-    return toOutput;
-
-    //return output;
-
-}
-
-
-bool YourClass::operator<(YourClass player){
-    return (this->getName()<player.getName());
-}
-bool YourClass::operator<=(YourClass player){
-    return (this->getName()<=player.getName());
-}
-bool YourClass::operator>(YourClass player){
-    return (this->getName()>player.getName());
-}
-bool YourClass::operator>=(YourClass player){
-    return (this->getName()>=player.getName());
-}
-bool YourClass::operator==(YourClass player){
-    return (this->getName()==player.getName());
-}
-
-YourClass::YourClass() {
-
-}
-
-YourClass::~YourClass() {
+void YourClass::setClub() {
 
 }
 
 
 
+ostream &operator<<(ostream &output, const YourClass &example) {
+    output << "Name: " <<example.name<<endl;
+    output << "Age: " <<example.age<<endl;
+    output << "Overall: " <<example.overall<<endl;
+    output << "Nationality: " << example.nationality<<endl;
+    output << "Club" << example.club<<endl;
+
+}
 
 
 
+ostream &operator>>(ostream &output, const YourClass &example) {
+    output << "Name: " <<example.name<<endl;
+    output << "Age: " <<example.age<<endl;
+    output << "Overall: " <<example.overall<<endl;
+    output << "Nationality: " << example.nationality<<endl;
+    output << "Club" << example.club<<endl;
+}
+
+bool YourClass::operator>(const YourClass& example) {
+    return true;
+}
 
