@@ -72,6 +72,7 @@ bool LinkedList::Delete(YourClass obj) {
     }else{
         //element is in the list
 
+
     }
     //element was not found in the list
     return false;
