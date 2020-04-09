@@ -5,47 +5,74 @@
 #include "BinaryInsertionSort.h"
 #include "Node.h"
 #include "YourClass.h"
+#include "LinkedList.h"
+#include "LinkedList.cpp"
 
 using namespace std;
 
 int main() {
+    string playerName, playerAge, playerNationality, playerClub, playerOverall;
+    YourClass nextPlayer;
 
     string filename;
     int totalEntries = 0;
    //read the file name of your dataset
 
-   cout << "What is the name of your file?" << endl;
-   cin >> filename;
+//   cout << "What is the name of your file?" << endl;
+//   cin >> filename;
 
    cout << "What many data entries are there?" << endl;
    cin >> totalEntries;
 
    ifstream inFile;
    ofstream outFile;
-   inFile.open(filename);
+   inFile.open("Project6Data.csv");
 
     if (! inFile . is_open ()){
         cout << " Could not open file \n";
         return 1; // something bad happened , return non ‐ zero
     }
 
+    vector<YourClass> v(totalEntries);
 
-    vector<YourClass> v;
-    string nextRow;
-    YourClass temp; //initialize a temporary var to store the read data into
-    while(!inFile.eof()){ //read until end of file
-        getline(inFile, nextRow, ',');
-        v.push_back(temp);
+    for(int i=0; i<totalEntries; i++) {
+        getline(inFile, playerName, ',');
+        nextPlayer.setName(playerName);
+        getline(inFile, playerAge, ',');
+        nextPlayer.setAge(playerAge);
+        getline(inFile, playerNationality, ',');
+        nextPlayer.setNationality(playerNationality);
+        getline(inFile, playerClub, ',');
+        nextPlayer.setClub(playerClub);
+        getline(inFile, playerOverall);
+        nextPlayer.setOverall(playerOverall);
+        v.at(i) = nextPlayer;
+        cout<<nextPlayer<<endl;
     }
-    inFile.close();
-    cout << "done!" << endl;
-    // populate the vector with the data from your data set
-    string data;
-    for (int i = 0; i < totalEntries; ++i) {
-        getline(inFile, data);
-        v.at(i)=
 
-    }
+
+
+//    LinkedList l;
+//    // populate the vector with the data from your data set
+//    string tmp;
+//    getline(inFile, tmp);
+//    while (!inFile.eof()) {
+//        if (!inFile.fail()) {
+//            getline(inFile, playerName, ',');
+//            getline(inFile, playerAge, ',');
+//            getline(inFile, playerOverall, ',');
+//            getline(inFile, playerNationality, ',');
+//            getline(inFile, playerClub, ',');
+//            getline(inFile, tmp);
+//            YourClass a(playerName, playerAge, playerOverall, playerName, playerClub);
+//
+//        }
+//    }
+//    l.printList();
+
+
+
+
 
     // binary insertion sort
     insertionSort(v, v.size());
@@ -58,7 +85,7 @@ int main() {
     // print out sorted list
     for (int i = 0; i < v.size(); i++) {
         //you should ovrride << to YourClass
-        YourClass << v[i] << endl;
+        cout << v.at(i) << endl;
     }
 
     // FINISH ME

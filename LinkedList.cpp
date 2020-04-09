@@ -7,7 +7,7 @@
 #include "YourClass.h"
 using namespace std;
 
-LinkList::LinkList() {
+LinkedList::LinkedList() {
     head = nullptr;
 }
 
@@ -15,7 +15,7 @@ LinkedList::LinkedList(const LinkedList &players){
     cout << "Copy Constructor Called! " << endl;
     Node *current = players.head;
     if(current != nullptr){
-        head = new Node(listCursor->value, nullptr);
+        head = new Node(current->value, nullptr);
     }
     Node *tmp = head;
     while(current->next!= nullptr){
@@ -71,8 +71,15 @@ bool LinkedList::Delete(YourClass obj) {
         return false;//did not delete anything
     }else{
         //element is in the list
-
-
+        while(current != nullptr){
+            if(current->value == obj){
+                previous->next = current->next;
+                current-> next = nullptr;
+                //obj is deleted
+                delete current;
+                return true;
+            }
+        }
     }
     //element was not found in the list
     return false;
@@ -85,7 +92,7 @@ YourClass LinkedList::find(YourClass obj) {
             //obj is found
             return obj;
         }
-        cursor = cursor-> next;
+        current = current-> next;
     }
 }
 
@@ -110,7 +117,7 @@ void LinkedList::InsertionSort() {
     while (current != nullptr){
         previous = head;
         while(previous != current){
-            if(previous->value > cursor->value){
+            if(previous->value > current->value){
                 swap(previous->value, current->value);
             }else{
                 previous = previous ->next;
